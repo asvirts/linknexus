@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { PageData } from "./$types";
+    import { enhance } from "$app/forms";
 
     export let data: PageData;
 
@@ -12,7 +13,7 @@
 <p>{data.text}</p>
 <p>{data.name}</p>
 
-<form method="POST">
+<form method="POST" action="?/rename" use:enhance>
     <input type="text" name="name">
     <button type="submit">Submit</button>
 </form>
