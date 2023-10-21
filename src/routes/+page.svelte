@@ -1,2 +1,12 @@
-<img src="/ln-logo.jpg" alt="Linknexus logo" style="max-width: 600px;">
-<h1 class="text-3xl font-bold underline text-green-500">Linknexus</h1>
+<script lang="ts">
+    import { user } from "$lib/firebase";
+</script>
+  
+{#if $user}
+  <slot />
+{:else}
+    <p class="text-error">
+        You must be signed in to view this page.
+        <a class="btn btn-primary" href="/login">Sign in</a>
+    </p>
+{/if}
